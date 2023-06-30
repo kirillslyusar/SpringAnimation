@@ -17,17 +17,18 @@ final class ViewController: UIViewController {
             animationLabel.text = animation.description
         }
     }
+    
     // MARK: - Private properties
-    private var animation = Animation.getRandomAnimation()
+    private var animation = Animation.getRandomAnimation() // экземпляр модели анимайшен
 
     // MARK: - IB Actions
-    @IBAction func animationButtonPressed(_ sender: UIButton) {
+    @IBAction func animationButtonPressed(_ sender: UIButton) { //sender нужен для того, что обратиться к тексту кнопки
         animationLabel.animation = "zoomOut"
         animationLabel.x = 50
         animationLabel.animate()
         animationLabel.text = animation.description
         
-        animationLabel.animateNext { [unowned self] in
+        animationLabel.animateNext { [unowned self] in // animateNext нужен для того, чтобы сделать плавный переход от одной анимации к другой
             animationLabel.animation = "zoomIn"
             animationLabel.animate()
             
@@ -38,8 +39,8 @@ final class ViewController: UIViewController {
             animationView.delay = animation.delay
             animationView.animate()
             
-            animation = Animation.getRandomAnimation()
-            sender.setTitle("Run \(animation.name)", for: .normal)
+            animation = Animation.getRandomAnimation() // присваеваем обновленную анимацию
+            sender.setTitle("Run \(animation.name)", for: .normal) // передаем туда значение кнопки
         }
     }
 }

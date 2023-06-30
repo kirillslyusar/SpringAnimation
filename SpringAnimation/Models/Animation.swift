@@ -12,7 +12,7 @@ struct Animation {
     let curve: String
     let force: Double
     let duration: Double
-    let delay: Double
+    let delay: Double // задаем все свойства
     
     var description: String {
         """
@@ -22,11 +22,11 @@ struct Animation {
         duration: \(String(format: "%.02f", duration))
         delay: \(String(format: "%.02f", delay))
         """
-    }
+    } // и вычисялемое свойство
     
-    static func getRandomAnimation() -> Animation {
+    static func getRandomAnimation() -> Animation { //  статичный метод можно вызвать без создания экземпляра
         Animation(
-            name: DataStore.shared.animations.randomElement()?.rawValue ?? "slideLeft",
+            name: DataStore.shared.animations.randomElement()?.rawValue ?? "slideLeft", // обращаемся к хранилищу и вытаскиваем нужно значение
             curve: DataStore.shared.curves.randomElement()?.rawValue ?? "easeIn",
             force: Double.random(in: 1...1.5),
             duration: Double.random(in: 0.8...1.6),

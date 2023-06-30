@@ -9,9 +9,9 @@ import SpringAnimation
 
 final class DataStore {
     
-    static let shared = DataStore()
+    static let shared = DataStore() // делаем синголтон(одну точку доступа к хранилищу)
     
-    let animations: [AnimationPreset] = [
+    let animations: [AnimationPreset] = [ //массив кейсов
         .fadeIn,
         .fadeInDown,
         .fadeInLeft,
@@ -41,8 +41,8 @@ final class DataStore {
         .zoomOut
     ]
     
-    let curves = AnimationCurve.allCases
+    let curves = AnimationCurve.allCases // массив кривых, метод allCases позволяет обратится ко все кейсам, но он должен быть подписан под CaseIterable
     
-    private init() {}
+    private init() {} // приватный инициализатор нужен для того, чтобы нигде больше нельзя было создать экземпляр класса
 }
 

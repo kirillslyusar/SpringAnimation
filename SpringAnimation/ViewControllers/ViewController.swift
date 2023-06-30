@@ -11,10 +11,12 @@ import SpringAnimation
 final class ViewController: UIViewController {
     
     // MARK: - IB Outlets
-    
-    
-   
-    
+    @IBOutlet weak var animationView: SpringView!
+    @IBOutlet weak var animationLabel: SpringLabel! {
+        didSet {
+            animationLabel.text = animation.description
+        }
+    }
     // MARK: - Private properties
     private var animation = Animation.getRandomAnimation()
 
